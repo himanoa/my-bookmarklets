@@ -9,7 +9,7 @@ const generateSection = (packageName: string) => {
   const code = readFileSync(`./packages/${packageName}/dist/index.js`).toString()
   const [title, description] = readme.split("\n").filter(line => line !== "")
 
-  return `${title}
+  return `[${title}](code)
 
 ${description}
 
