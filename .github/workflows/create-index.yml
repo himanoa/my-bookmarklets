@@ -1,0 +1,31 @@
+name: create index
+on:
+  workflow_dispatch:
+    branches: [master]
+  push:
+    branches:
+      - master
+concurrency: update-index
+jobs:
+  update-index:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.4.0
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          cache: yarn
+      - run: yarn install --ignore-optional --frozen-lockfile
+      - run: yarn build
+      - run: yarn build:index
+      - name: Create Pull Request 
+        id: cpr
+        uses: peter-evans/create-pull-request@v3
+        with:
+          title: Update BOOKMARKLETS.md
+          body: update
+          labels: update-index
+          branch: update-index
+          commit-message: "exec: `yarn build:index`"
+          base : master
+          delete-branch: true

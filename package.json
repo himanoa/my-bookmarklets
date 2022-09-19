@@ -1,0 +1,23 @@
+{
+  "name": "bookmarklets",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "himanoa <matsunoappy@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "ultra -r --rebuild yarn run build ",
+    "build:index": "ts-node ./packages/internal/generate-index/src/index.ts > BOOKMARKLETS.md"
+  },
+  "devDependencies": {
+    "ts-node": "^10.7.0",
+    "typescript": "^4.5.5",
+    "ultra-runner": "^3.10.5"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "packages/internal/*"
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+yarn tsc src/index.ts --outDir ./dist --removeComments
+dist=$(<./dist/index.js)
+echo "javascript:(() => {`echo $dist`})()" | tr '\n' ' ' > dist/index.js
