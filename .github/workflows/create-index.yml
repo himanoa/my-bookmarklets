@@ -1,10 +1,10 @@
 name: create index
 on:
   workflow_dispatch:
-    branches: [master]
+    branches: [main]
   push:
     branches:
-      - master
+      - main
 concurrency: update-index
 jobs:
   update-index:
@@ -27,5 +27,5 @@ jobs:
           labels: update-index
           branch: update-index
           commit-message: "exec: `yarn build:index`"
-          base : master
+          base : main
           delete-branch: true
