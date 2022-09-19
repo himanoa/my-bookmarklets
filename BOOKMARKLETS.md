@@ -6,7 +6,7 @@
 1. chrome://bookmarks/ にアクセスしてブックマークマネージャを開く
 1. 右上のメニューより 新しいブックマークを追加 を選択する
 
-## docuemnt-title-override
+[## docuemnt-title-override](code)
 
 promptの内容で現在開いているページの名前を変更します
 
